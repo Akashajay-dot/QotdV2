@@ -55,7 +55,7 @@ function Approve() {
   const fetch =async ()=>{
     try {
       
-      const response = await axios.get(`${apiBaseUrl}api/FetchQuestion/${state.QId}`);
+      const response = await axios.get(`${apiBaseUrl}/api/FetchQuestion/${state.QId}`);
       //  console.log(response);
       if (response.status === 200) {
         setresponse(response.data[0]);
