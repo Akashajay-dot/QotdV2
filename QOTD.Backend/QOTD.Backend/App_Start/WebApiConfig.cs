@@ -1,9 +1,4 @@
-﻿using Microsoft.Owin.Security.OAuth;
-using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace QOTD.Web
@@ -14,7 +9,7 @@ namespace QOTD.Web
         {
             UnityConfig.RegisterComponents();
 
-            var cors = new EnableCorsAttribute("http://localhost:3000", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 
             config.MapHttpAttributeRoutes();
@@ -23,9 +18,7 @@ namespace QOTD.Web
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
-            
-        }
-        
+            );            
+        }        
     }
 }

@@ -9,25 +9,25 @@ using QOTD.Web.Models;
 namespace QOTD.Web.Controllers.Api
 {
     public class adminApproveController : ApiController
-    { 
-         private readonly AppdbContext _context;
-
-    public adminApproveController()
     {
-        _context = new AppdbContext();
-    }
+        private readonly AppdbContext _context;
 
-    [HttpGet]
-    [Route("api/adminApprove")]
-    public IHttpActionResult GetUnansweredQuestions()
-    {
-        var questions = _context.Questions
-            .Where(q => q.IsActive )
-            .ToList();
+        public adminApproveController()
+        {
+            _context = new AppdbContext();
+        }
+
+        [HttpGet]
+        [Route("api/adminApprove")]
+        public IHttpActionResult GetUnansweredQuestions()
+        {
+            var questions = _context.Questions
+                .Where(q => q.IsActive)
+                .ToList();
 
 
-        return Ok(questions);
-    }
-    
+            return Ok(questions);
+        }
+
     }
 }
